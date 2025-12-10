@@ -1,0 +1,303 @@
+/* Variables de couleurs - Thème développement web et jeux vidéo */
+:root {
+  --primary-color: #00d4ff;
+  --secondary-color: #7c3aed;
+  --accent-color: #f59e0b;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  
+  /* Couleurs gaming */
+  --gaming-purple: #9333ea;
+  --gaming-cyan: #06b6d4;
+  --gaming-pink: #ec4899;
+}
+
+/* Thème sombre (par défaut) */
+:root,
+.dark-theme {
+  --bg-dark: #0a0e27;
+  --bg-darker: #050810;
+  --bg-card: #111827;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --border-color: #1f2937;
+  --code-bg: #1e1e1e;
+}
+
+/* Thème clair */
+.light-theme {
+  --bg-dark: #f8fafc;
+  --bg-darker: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --code-bg: #f1f5f9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Lien d'accès rapide (skip link) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--primary-color);
+  color: #0f172a;
+  padding: 10px 16px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  z-index: 2000;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Skeleton / Shimmer */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    rgba(148, 163, 184, 0.12) 0%,
+    rgba(148, 163, 184, 0.24) 20%,
+    rgba(148, 163, 184, 0.12) 40%,
+    rgba(148, 163, 184, 0.12) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.skeleton-line.sm {
+  width: 40%;
+}
+
+.skeleton-line.md {
+  width: 70%;
+}
+
+.skeleton-line.lg {
+  width: 90%;
+}
+
+.skeleton-card {
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  background: var(--bg-dark);
+}
+
+/* Animations au scroll */
+.scroll-animate {
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-animate.animate-in {
+  animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Transitions fluides globales */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a, button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gaming-cyan);
+}
+
+/* Typographie */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--gaming-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+}
+
+h3 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--primary-color);
+  font-size: 0.9em;
+}
+
+/* Utilitaires */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+}
+
