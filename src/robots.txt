@@ -1,0 +1,24 @@
+# robots.txt pour FlixDev Portfolio
+# https://flixbad.fr/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://flixbad.fr/sitemap.xml
+
+# Bloquer les fichiers de configuration
+Disallow: /api/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Autoriser les assets
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.svg
+Allow: /*.woff
+Allow: /*.woff2
+
